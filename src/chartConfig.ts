@@ -1,14 +1,33 @@
+import { plugins } from 'chart.js';
+
 export const data = {
-  labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+  labels: ['Draft', 'Upload Sukses', 'Upload Gagal', 'Bupot Terlapor'],
   datasets: [
     {
-      backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-      data: [40, 20, 80, 10]
-    }
-  ]
-}
+      backgroundColor: ['#DBDBDB', '#43A047', '#D32F2F', '#11AAE2'],
+      data: [3, 12, 6, 12],
+    },
+  ],
+  hoverOffset: 4,
+};
 
 export const options = {
   responsive: true,
-  maintainAspectRatio: false
-}
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'right',
+      align: 'center',
+      labels: {
+        boxWidth: 12,
+        boxHeight: 12,
+        usePointStyle: true,
+        pointStyle: 'circle',
+      },
+    },
+    title: {
+      display: true,
+      text: 'Status Upload',
+    },
+  },
+};
