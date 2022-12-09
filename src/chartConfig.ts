@@ -4,6 +4,7 @@ export const data = {
   labels: ['Draft', 'Upload Sukses', 'Upload Gagal', 'Bupot Terlapor'],
   datasets: [
     {
+      label: 'Status Upload',
       backgroundColor: ['#DBDBDB', '#43A047', '#D32F2F', '#11AAE2'],
       data: [3, 12, 6, 12],
     },
@@ -25,9 +26,14 @@ export const options = {
         pointStyle: 'circle',
       },
     },
-    title: {
-      display: true,
-      text: 'Status Upload',
+    tooltip: {
+      callbacks: {
+        label: function (context) {
+          return `${context.dataset.label} (${Math.floor(
+            (context.raw / 33) * 100
+          )}%)`;
+        },
+      },
     },
   },
 };
