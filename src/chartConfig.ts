@@ -15,6 +15,7 @@ export const options = {
   maintainAspectRatio: false,
   plugins: {
     legend: {
+      display: false,
       position: 'right',
       align: 'center',
       labels: {
@@ -22,6 +23,32 @@ export const options = {
         boxHeight: 12,
         usePointStyle: true,
         pointStyle: 'circle',
+        generateLabels(chart) {
+          const data = chart.data;
+          if (data.labels.length && data.datasets.length) {
+            const {
+              labels: { pointStyle },
+            } = chart.legend.options;
+
+            return data.labels.map((label, i) => {
+              const meta = chart.getDatasetMeta(0);
+              const style = meta.controller.getStyle(i);
+
+              return {
+                text: `${label}: ${data['datasets'][0].data[i]}`,
+                fillStyle: style.backgroundColor,
+                strokeStyle: style.borderColor,
+                lineWidth: style.borderWidth,
+                pointStyle: pointStyle,
+                hidden: !chart.getDataVisibility(i),
+
+                // Extra data used for toggling the correct item
+                index: i,
+              };
+            });
+          }
+          return [];
+        },
       },
     },
     tooltip: {
