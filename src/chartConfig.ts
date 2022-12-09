@@ -27,8 +27,13 @@ export const options = {
     tooltip: {
       callbacks: {
         label: function (context) {
-          console.log(context);
-          return `${context.label} (${Math.floor((context.raw / 33) * 100)}%)`;
+          const totalData = context.dataset.data.reduce(
+            (accumulator, currentValue) => accumulator + currentValue,
+            0
+          );
+          return `${context.label} (${Math.floor(
+            (context.raw / totalData) * 100
+          )}%)`;
         },
       },
     },
