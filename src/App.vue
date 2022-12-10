@@ -37,4 +37,16 @@ export default {
 .doughnut-container {
   width: 350px;
 }
+canvas {
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.2) 56%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0.2) 64%,
+    rgba(0, 0, 0, 0) 65%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
 </style>

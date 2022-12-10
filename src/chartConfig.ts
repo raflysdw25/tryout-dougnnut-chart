@@ -5,7 +5,8 @@ export const data = {
   datasets: [
     {
       backgroundColor: ['#DBDBDB', '#43A047', '#D32F2F', '#11AAE2'],
-      data: [3, 12, 6, 12],
+      // data: [3, 12, 6, 12],
+      data: [0, 0, 0, 0],
     },
   ],
 };
